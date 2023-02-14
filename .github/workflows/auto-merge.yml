@@ -20,6 +20,7 @@ jobs:
 
       - name: Automatically merge patch versions
         if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-patch' }}
+        uses: actions/checkout@v2
         run: |
           yarn install
           yarn lint
