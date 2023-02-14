@@ -20,8 +20,8 @@ jobs:
 
       - name: Automatically merge patch versions
         if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-patch' }}
-        uses: actions/checkout@v2
         run: |
+          cd nextjs-templete/nextjs-templete
           yarn install
           yarn lint
           yarn prettier
