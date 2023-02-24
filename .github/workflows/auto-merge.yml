@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Dependabot metadata
         id: metadata
         uses: dependabot/fetch-metadata@v1.1.1
@@ -21,7 +24,7 @@ jobs:
       - name: Automatically merge patch versions
         if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-patch' }}
         run: |
-          cd ../../package.json
+          cd nextjs-templete
           yarn install
           yarn lint
           yarn prettier
