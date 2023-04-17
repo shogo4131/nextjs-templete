@@ -1,5 +1,3 @@
-import * as nextImage from 'next/image';
-import { RouterContext } from 'next/dist/shared/lib/router-context';
 import '../src/styles/globals.css';
 
 export const parameters = {
@@ -10,14 +8,4 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  /* storybookでnext/routerを使用する設定 */
-  nextRouter: {
-    Provider: RouterContext.Provider,
-  },
 };
-
-/* storybookでnext/imageを使用する設定 */
-Object.defineProperty(nextImage, 'default', {
-  configurable: true,
-  value: (props) => <img {...props} />,
-});
